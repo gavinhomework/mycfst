@@ -1,0 +1,16 @@
+<!doctype html>
+<html>
+<body>
+<script>
+  const size = 100 * 1024 * 1024; // 100MB
+  const data = new Uint8Array(size);
+  crypto.getRandomValues(data);
+
+  const blob = new Blob([data]);
+  const url = URL.createObjectURL(blob);
+
+  document.body.innerHTML =
+    `<a href="${url}" download="100mb.bin">Download</a>`;
+</script>
+</body>
+</html>
